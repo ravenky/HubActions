@@ -4,7 +4,7 @@
   "tier": "Free"
  },
  "properties": {
-  "displayName": "Azure SQL MI should disable public network access",
+  "displayName": "Azure SQL MI should disable public network access - coded in GitHub",
   "policyDefinitionId": "/subscriptions/2fcbf30e-565b-4cb5-b62b-f2a3e0be7850/providers/Microsoft.Authorization/policyDefinitions/d42d6380-859d-405f-b82f-152e143b288e",
   "scope": "/subscriptions/2fcbf30e-565b-4cb5-b62b-f2a3e0be7850",
   "notScopes": [],
