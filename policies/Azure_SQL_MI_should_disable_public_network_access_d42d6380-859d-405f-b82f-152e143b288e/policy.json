@@ -1,0 +1,50 @@
+{
+ "properties": {
+  "displayName": "Azure SQL MI should disable public network access",
+  "policyType": "Custom",
+  "mode": "Indexed",
+  "description": "Disabling public network access (public endpoint) on Azure SQL Managed Instances improves security by ensuring that they can only be accessed from inside their virtual networks or via Private Endpoints. To learn more about public network access, visit https://aka.ms/mi-public-endpoint.",
+  "metadata": {
+   "category": "SQL",
+   "createdBy": "3d51a0e3-8d5b-43b1-a522-e3d97cd076c5",
+   "createdOn": "2023-02-22T12:44:59.4525653Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {
+   "effect": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Effect",
+     "description": "Enable or disable the execution of the policy"
+    },
+    "allowedValues": [
+     "Audit",
+     "Deny",
+     "Disabled"
+    ],
+    "defaultValue": "Audit"
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Sql/managedInstances"
+     },
+     {
+      "field": "Microsoft.Sql/managedInstances/publicDataEndpointEnabled",
+      "equals": true
+     }
+    ]
+   },
+   "then": {
+    "effect": "[parameters('effect')]"
+   }
+  }
+ },
+ "id": "/subscriptions/2fcbf30e-565b-4cb5-b62b-f2a3e0be7850/providers/Microsoft.Authorization/policyDefinitions/d42d6380-859d-405f-b82f-152e143b288e",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "d42d6380-859d-405f-b82f-152e143b288e"
+}
